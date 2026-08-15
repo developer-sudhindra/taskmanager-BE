@@ -14,6 +14,7 @@ import { Comment } from '../comment/comment.entity';
 import { User } from '../users/user.entity';
 import { TaskLabel } from './task-label.entity';
 import { Project } from '../project/project.entity';
+import { Subtask } from 'src/subtask/subtask.entity';
 
 @Entity()
 export class Task {
@@ -89,4 +90,7 @@ export class Task {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Subtask, (subtask) => subtask.parentTask)
+  subTasks: Subtask[];
 }

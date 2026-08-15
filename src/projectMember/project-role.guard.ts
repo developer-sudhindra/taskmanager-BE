@@ -44,8 +44,6 @@ export class ProjectRoleGuard {
       request.body?.projectId ||
       request.query?.projectId;
 
-    // console.log(request);
-
     if (!projectId) {
       throw new ForbiddenException('Project tracking ID missing from context');
     }

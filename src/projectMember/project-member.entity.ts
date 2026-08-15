@@ -15,7 +15,7 @@ export enum ProjectRole {
   VIEWER = 'VIEWER',
 }
 
-@Entity('project_members') // 🔴 CRITICAL FIX: Tells TypeORM that this class is a database table!
+@Entity('project_members')
 @Unique(['userId', 'projectId'])
 export class ProjectMember {
   @PrimaryGeneratedColumn('uuid')
