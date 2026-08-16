@@ -19,6 +19,7 @@ import { authConfig } from './config/auth.config';
 import { UsersModule } from './users/users.module';
 import { ProjectMember } from './projectMember/project-member.entity';
 import { ProfileModule } from './profile/profile.module';
+import { SubtaskModule } from './subtask/subtask.module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { ProfileModule } from './profile/profile.module';
     CommentModule,
     UsersModule,
     ProfileModule,
+    SubtaskModule,
   ],
   controllers: [AppController],
   providers: [
