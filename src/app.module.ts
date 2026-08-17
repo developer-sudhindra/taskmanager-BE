@@ -20,6 +20,7 @@ import { UsersModule } from './users/users.module';
 import { ProjectMember } from './projectMember/project-member.entity';
 import { ProfileModule } from './profile/profile.module';
 import { SubtaskModule } from './subtask/subtask.module';
+import { ProjectMemberModule } from './projectMember/project-member.module';
 
 @Module({
   imports: [
@@ -48,6 +49,7 @@ import { SubtaskModule } from './subtask/subtask.module';
     UsersModule,
     ProfileModule,
     SubtaskModule,
+    ProjectMemberModule,
   ],
   controllers: [AppController],
   providers: [
