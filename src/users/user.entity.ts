@@ -11,6 +11,7 @@ import {
 import { Role } from './role.enum';
 import { Theme } from './theme.enum';
 import { MenuType } from './menu-type.enum';
+import { ProjectMember } from '../projectMember/project-member.entity';
 
 @Entity()
 export class User {
@@ -65,4 +66,7 @@ export class User {
   })
   @Expose()
   roles: Role[];
+
+  @OneToMany(() => ProjectMember, (projectMember) => projectMember.user)
+  projectMembers: ProjectMember[];
 }

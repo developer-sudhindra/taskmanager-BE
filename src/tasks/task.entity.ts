@@ -14,7 +14,7 @@ import { Comment } from '../comment/comment.entity';
 import { User } from '../users/user.entity';
 import { TaskLabel } from './task-label.entity';
 import { Project } from '../project/project.entity';
-import { Subtask } from 'src/subtask/subtask.entity';
+import { Subtask } from '../subtask/subtask.entity';
 
 @Entity()
 export class Task {

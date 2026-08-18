@@ -2,6 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ProjectStatus } from './project.model';
 import { Task } from '../tasks/task.entity';
 import { Expose } from 'class-transformer';
+import { ProjectMember } from '../projectMember/project-member.entity';
 
 @Entity('projects')
 export class Project {
@@ -55,4 +56,7 @@ export class Project {
 
   @Expose()
   taskCount?: number;
+
+  @OneToMany(() => ProjectMember, (projectMember) => projectMember.project)
+  projectMembers: ProjectMember[];
 }

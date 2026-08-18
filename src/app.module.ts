@@ -21,6 +21,7 @@ import { ProjectMember } from './projectMember/project-member.entity';
 import { ProfileModule } from './profile/profile.module';
 import { SubtaskModule } from './subtask/subtask.module';
 import { ProjectMemberModule } from './projectMember/project-member.module';
+import { Subtask } from './subtask/subtask.entity';
 
 @Module({
   imports: [
@@ -30,7 +31,15 @@ import { ProjectMemberModule } from './projectMember/project-member.module';
       useFactory: (configService: TypedConfigService) => ({
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         ...configService.get('database'),
-        entities: [Task, Comment, Project, User, TaskLabel, ProjectMember],
+        entities: [
+          Task,
+          Comment,
+          Project,
+          User,
+          TaskLabel,
+          ProjectMember,
+          Subtask,
+        ],
         // dropSchema: true,
       }),
     }),
@@ -40,7 +49,7 @@ import { ProjectMemberModule } from './projectMember/project-member.module';
       validationSchema: appConfigSchema,
       validationOptions: {
         // allowUnknow: false,
-        abortEarly: false,
+        abortEarly: true,
       },
     }),
     TasksModule,

@@ -1,7 +1,14 @@
-import { Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { TaskStatus } from '../tasks/tasks.model';
-import { Task } from 'src/tasks/task.entity';
+import { Task } from '../tasks/task.entity';
 
+@Entity()
 export class Subtask {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -25,7 +32,7 @@ export class Subtask {
     nullable: false,
     default: TaskStatus.OPEN,
   })
-  staus: TaskStatus;
+  status: TaskStatus;
 
   @Column()
   assigneeId: string;

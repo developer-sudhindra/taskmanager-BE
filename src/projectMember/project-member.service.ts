@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { ProjectMember } from './project-member.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -25,7 +25,7 @@ export class ProjectMemberService {
       .getOne();
 
     if (existingMember) {
-      throw new Error('User is already a member of this project');
+      throw new ConflictException('User is already assigned to this project.');
     }
 
     const newProjectMember = this.projectMemberRepository.create({
